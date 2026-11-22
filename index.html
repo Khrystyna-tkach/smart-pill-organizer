@@ -32,48 +32,44 @@
   </svg>
   <div class="app">
     <header class="masthead">
-      <div class="identity"><div class="monogram" aria-hidden="true"><span class="monogram-mark">＋</span></div><div><div class="identity-name">pillbox</div><div class="identity-subtitle">Smart Pill Organizer</div></div></div>
+      <div class="identity"><div class="monogram" aria-hidden="true"><span class="monogram-mark">＋</span></div><div><div class="identity-name">Smart Pill Organizer</div><div class="identity-subtitle">Органайзер для ліків</div></div></div>
       <div id="topConnection" class="connection-indicator"><span class="status-dot"></span><span id="topConnectionText">Не підключено</span></div>
     </header>
 
     <main id="content">
       <section class="view" id="view-home" aria-labelledby="heading-home">
-        <div class="heading-wrap"><div class="kicker" id="todayDate">Сьогодні</div><h1 id="heading-home">Огляд</h1><p class="intro">Дози, кришка й нагадування — усе в одному місці.</p></div>
+        <div class="heading-wrap"><div class="kicker" id="todayDate">Сьогодні</div><h1 id="heading-home">Стан пристрою</h1><p class="intro">Контролюй графік приймання ліків зручно — усе в одному місці</p></div>
         <article class="device-panel">
-          <div class="device-top"><div class="device-illustration" aria-hidden="true"><svg viewBox="0 0 75 50"><rect x="9" y="11" width="57" height="30" rx="9" fill="#E8EFE8" stroke="#63826B" stroke-width="1.7"/><path d="M12 20h51" stroke="#63826B" stroke-width="1.6"/><rect x="31" y="31" width="14" height="2.5" rx="1.2" fill="#5D9377"/></svg></div><div class="device-data"><div class="device-name" id="deviceName">pill-lab</div><div class="device-description" id="deviceNetwork">Очікується MQTT</div></div><span class="device-dot" id="deviceDot" aria-label="Немає даних про пристрій"></span></div>
-          <div class="device-bottom"><svg class="icon"><use href="#i-box"/></svg><span>Кришка</span><strong id="lid">Немає даних</strong></div>
+          <div class="device-top"><div class="device-illustration" aria-hidden="true"><svg viewBox="0 0 75 50"><rect x="9" y="11" width="57" height="30" rx="9" fill="#E8EFE8" stroke="#63826B" stroke-width="1.7"/><path d="M12 20h51" stroke="#63826B" stroke-width="1.6"/><rect x="31" y="31" width="14" height="2.5" rx="1.2" fill="#5D9377"/></svg></div><div class="device-data"><div class="device-name" id="deviceName">pill-lab</div><div class="device-description" id="deviceNetwork">Очікується підключення</div></div><span class="device-dot" id="deviceDot" aria-label="Немає даних про пристрій"></span></div>
+          <div class="device-bottom"><svg class="icon"><use href="#i-box"/></svg><span>Органайзер</span><strong id="lid">Немає даних</strong></div>
         </article>
         <div class="section-heading"><h2>Прийоми сьогодні</h2><div class="muted" id="lastSeen">Дані ще не отримані</div></div>
         <div class="dose-group" id="doseList"><div class="empty-state">Під'єднайте MQTT, щоб побачити розклад.</div></div>
         <div class="next-panel"><div class="next-icon"><svg class="icon"><use href="#i-bell"/></svg></div><div><p class="label">Наступне нагадування</p><strong id="nextDose">Немає даних</strong><p id="nextHint" class="muted">Розклад із пристрою ще не отримано</p></div></div>
-        <p class="disclaimer"><svg class="icon"><use href="#i-info"/></svg><span>«Завершено» — цикл кришки. «Пропущено» — до закінчення вікна цей цикл не зафіксовано. Жоден статус не підтверджує фактичне приймання ліків.</span></p>
-      </section>
 
       <section class="view hidden" id="view-schedule" aria-labelledby="heading-schedule">
-        <div class="heading-wrap"><div class="kicker">Щоденний режим</div><h1 id="heading-schedule">Розклад</h1><p class="intro">Налаштуйте три години нагадувань на ESP32.</p></div>
+        <div class="heading-wrap"><div class="kicker">Щоденний режим</div><h1 id="heading-schedule">Розклад</h1><p class="intro">Налаштуйте час нагадувань </p></div>
         <div class="time-group">
           <label class="time-row" for="morning"><span class="time-icon tint-orange"><svg class="icon"><use href="#i-sun"/></svg></span><span class="time-label"><strong>Ранок</strong><small>Перше нагадування</small></span><input type="time" id="morning" value="08:00" aria-label="Час ранкового нагадування"></label>
           <label class="time-row" for="lunch"><span class="time-icon tint-sage"><svg class="icon"><use href="#i-sun"/></svg></span><span class="time-label"><strong>Обід</strong><small>Друге нагадування</small></span><input type="time" id="lunch" value="13:00" aria-label="Час обіднього нагадування"></label>
           <label class="time-row" for="evening"><span class="time-icon tint-blue"><svg class="icon"><use href="#i-moon"/></svg></span><span class="time-label"><strong>Вечір</strong><small>Третє нагадування</small></span><input type="time" id="evening" value="20:00" aria-label="Час вечірнього нагадування"></label>
         </div>
-        <div class="callout"><svg class="icon"><use href="#i-info"/></svg><span>Зміна часу не скидає сьогоднішні позначки «Завершено» і «Пропущено». Для нагадувань без завершення діє 60-хвилинне вікно; після нього вони позначаються пропущеними.</span></div>
-        <button id="saveSchedule" class="primary" type="button" disabled>Надіслати розклад на ESP32 <svg class="icon"><use href="#i-chevron"/></svg></button>
-        <p id="scheduleInfo" class="feedback" role="status">Спочатку під'єднайте MQTT.</p>
-        <div class="microcaption">Команда MQTT: <code>pillbox/pill-lab/cmd/schedule</code></div>
+        <div class="callout"><svg class="icon"><use href="#i-info"/></svg><span>Зміна часу не скидає сьогоднішні позначки «Завершено» і «Пропущено». Для нагадувань без завершення діє 60-хвилин; після нього вони позначаються пропущеними.</span></div>
+        <button id="saveSchedule" class="primary" type="button" disabled>Надіслати розклад пристрою <svg class="icon"><use href="#i-chevron"/></svg></button>
+        <p id="scheduleInfo" class="feedback" role="status">Не забудьте під'єднати його</p>
       </section>
 
       <section class="view hidden" id="view-history" aria-labelledby="heading-history">
-        <div class="heading-wrap"><div class="kicker">Сенсорні події</div><h1 id="heading-history">Історія</h1><p class="intro">За останні 7 днів. Підсумки з пам’яті ESP32, події — з цього браузера.</p></div>
+        <div class="heading-wrap"><div class="kicker">Сенсорні події</div><h1 id="heading-history">Історія</h1><p class="intro">За останні 7 днів. Підсумки з пам’яті пристрою</p></div>
         <article class="chart-panel">
-          <div class="chart-title"><div><div class="chart-eyebrow"><span class="live-dot"></span> IoT telemetry</div><h2>Статуси нагадувань</h2><p>Завершені та пропущені за день</p></div><div class="chart-tag">7 днів</div></div>
-          <svg id="weekChart" role="img" aria-label="Порівняння завершених і пропущених нагадувань за сім днів" viewBox="0 0 340 210"></svg>
-          <div class="chart-legend"><span><i class="key key-green"></i>Завершено</span><span><i class="key key-missed"></i>Пропущено</span><span><i class="key key-empty"></i>Немає даних</span></div>
+          <div class="chart-title"><div><div class="chart-eyebrow"><span class="live-dot"></span> IoT </div><h2>Статуси нагадувань</h2><p>Прийняті та пропущені ліки за день </p></div><div class="chart-tag"> Тиждень </div></div>
+          <svg id="weekChart" role="img" aria-label="Порівняння прийнятих і пропущених нагадувань за сім днів" viewBox="0 0 340 210"></svg>
+          <div class="chart-legend"><span><i class="key key-green"></i>Прийнято</span><span><i class="key key-missed"></i>Пропущено</span><span><i class="key key-empty"></i>Немає даних</span></div>
           <div class="chart-note" id="weekNote">Тижневі підсумки завантажаться після отримання теми weekly з ESP32.</div>
         </article>
-        <div class="metric-grid"><div class="metric"><div class="metric-label">Завершено</div><strong id="weekCount">—</strong><span>циклів за 7 днів</span></div><div class="metric"><div class="metric-label">Пропущено</div><strong id="weekMissed">—</strong><span>без циклу кришки</span></div><div class="metric"><div class="metric-label">Частка завершених</div><strong id="weekRate">—</strong><span>від визначених результатів</span></div></div>
+        <div class="metric-grid"><div class="metric"><div class="metric-label">Прийнято</div><strong id="weekCount">—</strong><span>циклів за 7 днів</span></div><div class="metric"><div class="metric-label">Пропущено</div><strong id="weekMissed">—</strong></div><div class="metric"><div class="metric-label">Частка завершених</div><strong id="weekRate">—</strong><span>від визначених результатів</span></div></div>
         <div class="section-heading events-heading"><h2>Останні події</h2><button id="clearHistory" class="link-button" type="button">Очистити локально</button></div>
         <div class="events-list" id="events"><div class="empty-state">Поки немає записаних подій.</div></div>
-        <p class="disclaimer"><svg class="icon"><use href="#i-info"/></svg><span>Тижневі підсумки зберігає ESP32. Детальні події зберігаються тільки в цьому браузері й можуть бути неповними. «Пропущено» означає відсутність зафіксованого циклу кришки до встановленого порогу, а не доказ неприймання ліків.</span></p>
       </section>
 
       <section class="view hidden" id="view-settings" aria-labelledby="heading-settings">
@@ -92,7 +88,7 @@
         <section class="push-panel" aria-labelledby="pushTitle">
           <div class="push-panel-heading">
             <span class="push-panel-icon"><svg class="icon"><use href="#i-bell"/></svg></span>
-            <div><h2 id="pushTitle">Сповіщення на iPhone</h2><p>Надходять навіть коли застосунок закритий</p></div>
+            <div><h2 id="pushTitle">Сповіщення на iPhone</h2></div>
           </div>
           <div class="push-types"><span>Час приймання</span><span>Пропущене нагадування</span></div>
           <button class="primary" type="button" id="enablePush" disabled>Увімкнути push-сповіщення</button>
@@ -101,9 +97,8 @@
             <p>Ідентифікатор цього iPhone для одноадресних сповіщень</p>
             <code id="pushSubscriptionId">—</code>
             <button class="secondary" type="button" id="copySubscription">Копіювати Subscription ID</button>
-            <small>Цей ID потрібно додати як секрет у Cloudflare Worker. REST API Key OneSignal тут вводити не можна.</small>
+            <small>Цей ID потрібно додати як секрет у Cloudflare Worker</small>
           </div>
-          <p class="push-help">На iPhone: Safari → Поділитися → На початковий екран → відкрий іконку Pillbox → натисни кнопку вище.</p>
         </section>
       </section>
     </main>
